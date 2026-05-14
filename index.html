@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="index.css">
+
+<title>Arts VM | Uniformes Profissionais</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<!-- ABA DO CARRINHO -->
+
+<div class="aba-carrinho" id="abaCarrinho">
+
+    <div class="topo-carrinho">
+
+        <h2>Seu Carrinho</h2>
+
+        <button onclick="fecharCarrinho()">
+            X
+        </button>
+
+    </div>
+
+    <div id="lista-carrinho"></div>
+
+    <h3 id="total-carrinho">
+        Total: R$ 0.00
+    </h3>
+
+    <div class="botoes-carrinho">
+
+        <button onclick="limparCarrinho()" class="limpar">
+
+            Limpar Carrinho
+
+        </button>
+
+        <button onclick="finalizarWhatsapp()" class="finalizar">
+
+            Finalizar no WhatsApp
+
+        </button>
+
+    </div>
+
+</div>
+
+    <!-- =========================
+    ABA DO CARRINHO
+    ========================== -->
+
+    <div class="aba-carrinho" id="abaCarrinho">
+
+        <div class="topo-carrinho">
+
+            <h2>
+                Seu Carrinho
+            </h2>
+
+            <button onclick="fecharCarrinho()">
+                X
+            </button>
+
+        </div>
+
+        <div id="lista-carrinho"></div>
+
+        <h3 id="total-carrinho">
+            Total: R$ 0.00
+        </h3>
+
+        <div class="botoes-carrinho">
+
+            <button
+            onclick="limparCarrinho()"
+            class="limpar">
+
+                Limpar Carrinho
+
+            </button>
+
+            <button
+            onclick="finalizarWhatsapp()"
+            class="finalizar">
+
+                Finalizar no WhatsApp
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- =========================
+    HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="topo">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <img src="artsvm.png">
+
+                <h1>
+                    Arts VM
+                </h1>
+
+            </div>
+
+            <!-- MENU -->
+
+            <nav class="menu">
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="#produtos">
+                    Produtos
+                </a>
+
+                <a href="#avaliacoes">
+                    Avaliações
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- =========================
+    BANNER
+    ========================== -->
+
+    <section class="banner" id="inicio">
+
+        <div>
+
+            <h1>
+                Uniformes Profissionais
+            </h1>
+
+            <p>
+                Qualidade premium para empresas,
+                escolas e hospitais.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+    PRODUTOS
+    ========================== -->
+
+    <h2 class="titulo-secao" id="produtos">
+
+        Produtos em Destaque
+
+    </h2>
+
+    <div class="container">
+
+        <div class="produtos">
+
+            <!--- primeira linha -->
+
+            <!-- PRODUTO 1 -->
+
+            <div class="produto"
+            onclick="abrirModal(this)">
+
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
+
+                <div class="produto-info">
+
+                    <h3>
+                        Uniforme Escolar
+                    </h3>
+
+                    <p class="descricao"
+                    style="display:none;">
+
+                        Uniforme escolar premium
+                        com tecido resistente
+                        e confortável.
+
+                    </p>
+
+                    <p class="preco">
+                        R$ 79,90
+                    </p>
+
+                    <!-- QUANTIDADE -->
+
+                    <div class="controle-qtd">
+
+                        <button
+                        onclick="event.stopPropagation();
+                        diminuir(this)">
+
+                            -
+
+                        </button>
+
+                        <span class="qtd">
+                            1
+                        </span>
+
+                        <button
+                        onclick="event.stopPropagation();
+                        aumentar(this)">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                    <!-- BOTÃO -->
+
+                    <button class="add"
+                    onclick="event.stopPropagation();
+                    adicionar(this,'Uniforme Escolar',79.90)">
+
+                        Adicionar ao Carrinho
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+
+
+              <!-- PRODUTO 2 -->
+
+            <div class="produto"
+            onclick="abrirModal(this)">
+
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
+
+                <div class="produto-info">
+
+                    <h3>
+                        Uniforme Escolar
+                    </h3>
+
+                    <p class="descricao"
+                    style="display:none;">
+
+                        Uniforme escolar premium
+                        com tecido resistente
+                        e confortável.
+
+                    </p>
+
+                    <p class="preco">
+                        R$ 79,90
+                    </p>
+
+                    <!-- QUANTIDADE -->
+
+                    <div class="controle-qtd">
+
+                        <button
+                        onclick="event.stopPropagation();
+                        diminuir(this)">
+
+                            -
+
+                        </button>
+
+                        <span class="qtd">
+                            1
+                        </span>
+
+                        <button
+                        onclick="event.stopPropagation();
+                        aumentar(this)">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                    <!-- BOTÃO -->
+
+                    <button class="add"
+                    onclick="event.stopPropagation();
+                    adicionar(this,'Uniforme Escolar',79.90)">
+
+                        Adicionar ao Carrinho
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+
+
+              <!-- PRODUTO 3 -->
+
+            <div class="produto"
+            onclick="abrirModal(this)">
+
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
+
+                <div class="produto-info">
+
+                    <h3>
+                        Uniforme Escolar
+                    </h3>
+
+                    <p class="descricao"
+                    style="display:none;">
+
+                        Uniforme escolar premium
+                        com tecido resistente
+                        e confortável.
+
+                    </p>
+
+                    <p class="preco">
+                        R$ 79,90
+                    </p>
+
+                    <!-- QUANTIDADE -->
+
+                    <div class="controle-qtd">
+
+                        <button
+                        onclick="event.stopPropagation();
+                        diminuir(this)">
+
+                            -
+
+                        </button>
+
+                        <span class="qtd">
+                            1
+                        </span>
+
+                        <button
+                        onclick="event.stopPropagation();
+                        aumentar(this)">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                    <!-- BOTÃO -->
+
+                    <button class="add"
+                    onclick="event.stopPropagation();
+                    adicionar(this,'Uniforme Escolar',79.90)">
+
+                        Adicionar ao Carrinho
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+
+
+              <!-- PRODUTO 4 -->
+
+            <div class="produto"
+            onclick="abrirModal(this)">
+
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
+
+                <div class="produto-info">
+
+                    <h3>
+                        Uniforme Escolar
+                    </h3>
+
+                    <p class="descricao"
+                    style="display:none;">
+
+                        Uniforme escolar premium
+                        com tecido resistente
+                        e confortável.
+
+                    </p>
+
+                    <p class="preco">
+                        R$ 79,90
+                    </p>
+
+                    <!-- QUANTIDADE -->
+
+                    <div class="controle-qtd">
+
+                        <button
+                        onclick="event.stopPropagation();
+                        diminuir(this)">
+
+                            -
+
+                        </button>
+
+                        <span class="qtd">
+                            1
+                        </span>
+
+                        <button
+                        onclick="event.stopPropagation();
+                        aumentar(this)">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                    <!-- BOTÃO -->
+
+                    <button class="add"
+                    onclick="event.stopPropagation();
+                    adicionar(this,'Uniforme Escolar',79.90)">
+
+                        Adicionar ao Carrinho
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <!-- segundas linha -->  
+
+        </div>
+
+    </div>
+
+      <div class="container">
+
+        <div class="produtos">
+
+            <!-- PRODUTO 1 -->
+
+            <div class="produto"
+            onclick="abrirModal(this)">
+
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
+
+                <div class="produto-info">
+
+                    <h3>
+                        Uniforme Escolar
+                    </h3>
+
+                    <p class="descricao"
+                    style="display:none;">
+
+                        Uniforme escolar premium
+                        com tecido resistente
+                        e confortável.
+
+                    </p>
+
+                    <p class="preco">
+                        R$ 79,90
+                    </p>
+
+                    <!-- QUANTIDADE -->
+
+                    <div class="controle-qtd">
+
+                        <button
+                        onclick="event.stopPropagation();
+                        diminuir(this)">
+
+                            -
+
+                        </button>
+
+                        <span class="qtd">
+                            1
+                        </span>
+
+                        <button
+                        onclick="event.stopPropagation();
+                        aumentar(this)">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                    <!-- BOTÃO -->
+
+                    <button class="add"
+                    onclick="event.stopPropagation();
+                    adicionar(this,'Uniforme Escolar',79.90)">
+
+                        Adicionar ao Carrinho
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+
+
+              <!-- PRODUTO 2 -->
+
+            <div class="produto"
+            onclick="abrirModal(this)">
+
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
+
+                <div class="produto-info">
+
+                    <h3>
+                        Uniforme Escolar
+                    </h3>
+
+                    <p class="descricao"
+                    style="display:none;">
+
+                        Uniforme escolar premium
+                        com tecido resistente
+                        e confortável.
+
+                    </p>
+
+                    <p class="preco">
+                        R$ 79,90
+                    </p>
+
+                    <!-- QUANTIDADE -->
+
+                    <div class="controle-qtd">
+
+                        <button
+                        onclick="event.stopPropagation();
+                        diminuir(this)">
+
+                            -
+
+                        </button>
+
+                        <span class="qtd">
+                            1
+                        </span>
+
+                        <button
+                        onclick="event.stopPropagation();
+                        aumentar(this)">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                    <!-- BOTÃO -->
+
+                    <button class="add"
+                    onclick="event.stopPropagation();
+                    adicionar(this,'Uniforme Escolar',79.90)">
+
+                        Adicionar ao Carrinho
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+
+
+              <!-- PRODUTO 3 -->
+
+            <div class="produto"
+            onclick="abrirModal(this)">
+
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
+
+                <div class="produto-info">
+
+                    <h3>
+                        Uniforme Escolar
+                    </h3>
+
+                    <p class="descricao"
+                    style="display:none;">
+
+                        Uniforme escolar premium
+                        com tecido resistente
+                        e confortável.
+
+                    </p>
+
+                    <p class="preco">
+                        R$ 79,90
+                    </p>
+
+                    <!-- QUANTIDADE -->
+
+                    <div class="controle-qtd">
+
+                        <button
+                        onclick="event.stopPropagation();
+                        diminuir(this)">
+
+                            -
+
+                        </button>
+
+                        <span class="qtd">
+                            1
+                        </span>
+
+                        <button
+                        onclick="event.stopPropagation();
+                        aumentar(this)">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                    <!-- BOTÃO -->
+
+                    <button class="add"
+                    onclick="event.stopPropagation();
+                    adicionar(this,'Uniforme Escolar',79.90)">
+
+                        Adicionar ao Carrinho
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+
+
+              <!-- PRODUTO 4 -->
+
+            <div class="produto"
+            onclick="abrirModal(this)">
+
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
+
+                <div class="produto-info">
+
+                    <h3>
+                        Uniforme Escolar
+                    </h3>
+
+                    <p class="descricao"
+                    style="display:none;">
+
+                        Uniforme escolar premium
+                        com tecido resistente
+                        e confortável.
+
+                    </p>
+
+                    <p class="preco">
+                        R$ 79,90
+                    </p>
+
+                    <!-- QUANTIDADE -->
+
+                    <div class="controle-qtd">
+
+                        <button
+                        onclick="event.stopPropagation();
+                        diminuir(this)">
+
+                            -
+
+                        </button>
+
+                        <span class="qtd">
+                            1
+                        </span>
+
+                        <button
+                        onclick="event.stopPropagation();
+                        aumentar(this)">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                    <!-- BOTÃO -->
+
+                    <button class="add"
+                    onclick="event.stopPropagation();
+                    adicionar(this,'Uniforme Escolar',79.90)">
+
+                        Adicionar ao Carrinho
+
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+ <section>
+
+       <!-- =========================
+    AVALIAÇÕES
+    ========================== -->
+
+   <div class="cards-avaliacoes">
+
+    <!-- CARD 1 -->
+    <div class="card-av">
+
+        <h3>⭐⭐⭐⭐⭐</h3>
+
+        <p>
+            "Excelente qualidade
+            e entrega rápida."
+        </p>
+
+        <br>
+
+        <strong>
+            Marcos Silva
+        </strong>
+
+    </div>
+
+    
+
+    <!-- CARD 2 -->
+    <div class="card-av">
+
+        <h3>⭐⭐⭐⭐⭐</h3>
+
+        <p>
+            "Uniformes muito confortáveis
+            e ótimo acabamento."
+        </p>
+
+        <br>
+
+        <strong>
+            Fernanda Lima
+        </strong>
+
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card-av">
+
+        <h3>⭐⭐⭐⭐⭐</h3>
+
+        <p>
+            "Atendimento excelente
+            e entrega rápida."
+        </p>
+
+        <br>
+
+        <strong>
+            Carlos Henrique
+        </strong>
+
+    </div>
+
+ </section>
+
+
+
+
+</div>
+
+    </section>
+
+    <!-- =========================
+    FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h2>
+            Arts VM
+        </h2>
+
+        <p>
+            Uniformes profissionais personalizados.
+        </p>
+
+        <br>
+
+        <p>
+            © 2026 Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+    <!-- =========================
+    CARRINHO FLUTUANTE
+    ========================== -->
+
+    <div class="carrinho-flutuante"
+    onclick="abrirCarrinho()">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <span id="contador-flutuante">
+
+            0
+
+        </span>
+
+    </div>
+
+    <!-- =========================
+    MODAL
+    ========================== -->
+
+    <div class="modal-produto"
+    id="modalProduto">
+
+        <div class="modal-conteudo">
+
+            <button class="fechar-modal"
+            onclick="fecharModal()">
+
+                X
+
+            </button>
+
+            <img id="modalImg">
+
+            <div class="modal-texto">
+
+                <h2 id="modalTitulo"></h2>
+
+                <p id="modalPreco"
+                class="preco"></p>
+
+                <p id="modalDescricao"></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script>
+
+/* APAGUE TODO SEU JAVASCRIPT ANTIGO
+E COLE ESSE NOVO */
+
+/* =========================
+CARRINHO COMPLETO
+========================= */
+
+let carrinho = [];
+
+let totalItens = 0;
+
+/* QUANTIDADE */
+
+function aumentar(botao){
+
+const qtd = botao.parentElement.querySelector('.qtd');
+
+qtd.textContent = parseInt(qtd.textContent) + 1;
+
+}
+
+function diminuir(botao){
+
+const qtd = botao.parentElement.querySelector('.qtd');
+
+let valor = parseInt(qtd.textContent);
+
+if(valor > 1){
+
+qtd.textContent = valor - 1;
+
+}
+
+}
+
+/* ADICIONAR */
+
+function adicionar(botao,nome,preco){
+
+let qtd = parseInt(
+botao.parentElement.querySelector('.qtd').textContent
+);
+
+let produtoExistente = carrinho.find(item => item.nome === nome);
+
+if(produtoExistente){
+
+produtoExistente.quantidade += qtd;
+
+}else{
+
+carrinho.push({
+nome:nome,
+preco:preco,
+quantidade:qtd
+});
+
+}
+
+atualizarCarrinho();
+
+}
+
+/* ATUALIZAR */
+
+function atualizarCarrinho(){
+
+totalItens = 0;
+
+carrinho.forEach(item => {
+
+totalItens += item.quantidade;
+
+});
+
+document.getElementById("contador-flutuante")
+.textContent = totalItens;
+
+renderizarCarrinho();
+
+}
+
+/* RENDERIZAR */
+
+function renderizarCarrinho(){
+
+const lista = document.getElementById("lista-carrinho");
+
+lista.innerHTML = "";
+
+let total = 0;
+
+carrinho.forEach((item,index) => {
+
+total += item.preco * item.quantidade;
+
+lista.innerHTML += `
+
+<div class="item-carrinho">
+
+<div>
+
+<h4>${item.nome}</h4>
+
+<p>
+Qtd: ${item.quantidade}
+</p>
+
+<p>
+R$ ${(item.preco * item.quantidade).toFixed(2)}
+</p>
+
+</div>
+
+<button onclick="removerItem(${index})">
+
+🗑
+
+</button>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("total-carrinho")
+.innerHTML =
+"Total: R$ " + total.toFixed(2);
+
+}
+
+/* REMOVER ITEM */
+
+function removerItem(index){
+
+carrinho.splice(index,1);
+
+atualizarCarrinho();
+
+}
+
+/* LIMPAR */
+
+function limparCarrinho(){
+
+carrinho = [];
+
+atualizarCarrinho();
+
+}
+
+/* ABRIR */
+
+function abrirCarrinho(){
+
+document.getElementById("abaCarrinho")
+.classList.add("ativo");
+
+}
+
+/* FECHAR */
+
+function fecharCarrinho(){
+
+document.getElementById("abaCarrinho")
+.classList.remove("ativo");
+
+}
+
+/* FINALIZAR WHATSAPP */
+
+function finalizarWhatsapp(){
+
+if(carrinho.length === 0){
+
+return;
+
+}
+
+let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
+
+let total = 0;
+
+carrinho.forEach(item => {
+
+mensagem +=
+`• ${item.nome} | QTD: ${item.quantidade}%0A`;
+
+total += item.preco * item.quantidade;
+
+});
+
+mensagem += `%0ATotal: R$ ${total.toFixed(2)}`;
+
+window.open(
+`https://wa.me/5511999999999?text=${mensagem}`,
+'_blank'
+);
+
+}
+
+/* MODAL */
+
+function abrirModal(card){
+
+let img = card.querySelector("img").src;
+
+let titulo = card.querySelector("h3").textContent;
+
+let preco = card.querySelector(".preco").textContent;
+
+let descricao =
+card.querySelector(".descricao").textContent;
+
+document.getElementById("modalImg").src = img;
+
+document.getElementById("modalTitulo")
+.textContent = titulo;
+
+document.getElementById("modalPreco")
+.textContent = preco;
+
+document.getElementById("modalDescricao")
+.textContent = descricao;
+
+document.getElementById("modalProduto")
+.classList.add("ativo");
+
+}
+
+function fecharModal(){
+
+document.getElementById("modalProduto")
+.classList.remove("ativo");
+
+}
+
+</script>
+
+</body>
+</html>
