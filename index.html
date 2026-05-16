@@ -1,1135 +1,1382 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="index.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>Arts VM | Uniformes Profissionais</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
+<style>
+
+:root{
+    --preto:#0f0f0f;
+    --cinza:#1c1c1c;
+    --cinza2:#2a2a2a;
+    --branco:#ffffff;
+    --amarelo:#FFC107;
+    --laranja:#FF6B00;
+    --gradiente:linear-gradient(45deg,#FFC107,#FF6B00);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--preto);
+    color:var(--branco);
+    overflow-x:hidden;
+}
+
+/* ===== SCROLL ===== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--gradiente);
+    border-radius:10px;
+}
+
+/* ===== HEADER ===== */
+
+header{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    backdrop-filter:blur(10px);
+    background:rgba(0,0,0,.5);
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo img{
+    width:80px;
+}
+
+.logo h1{
+    font-size:1.5rem;
+    font-weight:700;
+}
+
+.logo span{
+    color:var(--amarelo);
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+    position:relative;
+}
+
+nav a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:var(--gradiente);
+    transition:.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+.btn{
+    padding:12px 28px;
+    border:none;
+    border-radius:50px;
+    background:var(--gradiente);
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    text-decoration:none;
+    box-shadow:0 0 20px rgba(255,193,7,.4);
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 30px rgba(255,193,7,.7);
+}
+
+/* ===== HERO ===== */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:140px 8% 80px;
+    gap:50px;
+    position:relative;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(255,193,7,.08);
+    border-radius:50%;
+    filter:blur(100px);
+    top:50px;
+    right:-100px;
+}
+
+.hero-text{
+    max-width:600px;
+    z-index:2;
+}
+
+.hero-text h3{
+    color:var(--amarelo);
+    font-size:1.2rem;
+    margin-bottom:10px;
+}
+
+.hero-text h1{
+    font-size:4rem;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-text span{
+    background: var(--gradiente);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text p{
+    color:#ccc;
+    margin-bottom:35px;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn-outline{
+    border:2px solid var(--amarelo);
+    padding:12px 28px;
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.btn-outline:hover{
+    background:var(--gradiente);
+    border-color:transparent;
+}
+
+.hero-image{
+    position:relative;
+    z-index:2;
+}
+
+.hero-image img{
+    width:450px;
+    animation:float 4s ease-in-out infinite;
+    filter:drop-shadow(0 0 40px rgba(255,193,7,.3));
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+/* ===== CARDS ===== */
+
+.section{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:2.8rem;
+    margin-bottom:10px;
+}
+
+.section-title span{
+    color:var(--amarelo);
+}
+
+.section-title p{
+    color:#aaa;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:var(--cinza);
+    padding:35px;
+    border-radius:25px;
+    transition:.4s;
+    border:1px solid rgba(255,255,255,.05);
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:5px;
+    top:0;
+    left:0;
+    background:var(--gradiente);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px rgba(255,193,7,.15);
+}
+
+.card i{
+    font-size:2.5rem;
+    color:var(--amarelo);
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#bbb;
+    line-height:1.7;
+}
+
+/* ===== PRODUTOS ===== */
+
+.produtos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.produto{
+    background:var(--cinza);
+    border-radius:25px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.produto:hover{
+    transform:scale(1.03);
+}
+
+.produto img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.produto-info{
+    padding:25px;
+}
+
+.produto-info h3{
+    margin-bottom:10px;
+}
+
+.produto-info p{
+    color:#bbb;
+}
+
+/* ===== NUMEROS ===== */
+
+.numeros{
+    background:linear-gradient(to right,#111,#1b1b1b);
+    border-radius:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+    padding:60px;
+    text-align:center;
+}
+
+.numero h1{
+    font-size:3rem;
+    color:var(--amarelo);
+}
+
+.numero p{
+    color:#bbb;
+}
+
+/* ===== DEPOIMENTOS ===== */
+
+.depoimentos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.depoimento{
+    background:var(--cinza);
+    padding:30px;
+    border-radius:25px;
+}
+
+.stars{
+    color:gold;
+    margin-bottom:15px;
+}
+
+.depoimento p{
+    color:#ccc;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.depoimento h4{
+    color:var(--amarelo);
+}
+
+/* ===== CTA ===== */
+
+.cta{
+    text-align:center;
+    padding:100px 8%;
+    background:linear-gradient(45deg,#1b1b1b,#111);
+}
+
+.cta h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.cta p{
+    color:#bbb;
+    margin-bottom:35px;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    padding:40px 8%;
+    border-top:1px solid rgba(255,255,255,.08);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+footer p{
+    color:#aaa;
+}
+
+.social{
+    display:flex;
+    gap:15px;
+}
+
+.social a{
+    width:45px;
+    height:45px;
+    background:var(--cinza);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.social a:hover{
+    background:var(--gradiente);
+    transform:translateY(-5px);
+}
+
+/* ===== MENU MOBILE ===== */
+
+.menu-mobile{
+    display:none;
+    font-size:1.7rem;
+    cursor:pointer;
+    color:white;
+    z-index:3000;
+}
+
+.mobile-nav{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:280px;
+    height:100vh;
+    background:#111;
+    z-index:2000;
+    padding:100px 30px;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+    transition:.4s;
+    box-shadow:-10px 0 30px rgba(0,0,0,.5);
+}
+
+.mobile-nav.active{
+    right:0;
+}
+
+.mobile-nav a{
+    color:white;
+    text-decoration:none;
+    font-size:1.1rem;
+    transition:.3s;
+}
+
+.mobile-nav a:hover{
+    color:var(--amarelo);
+}
+
+.close-menu{
+    position:absolute;
+    top:25px;
+    right:25px;
+    font-size:1.5rem;
+    cursor:pointer;
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    z-index:1500;
+}
+
+.overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+/* =========================================
+RESPONSIVIDADE PROFISSIONAL
+========================================= */
+
+/* ===== AJUSTES GERAIS ===== */
+
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+}
+
+/* ===== NOTEBOOK ===== */
+
+@media screen and (max-width:1200px){
+
+    .hero{
+        gap:40px;
+    }
+
+    .hero-text h1{
+        font-size:3.5rem;
+    }
+
+    .hero-image img{
+        width:380px;
+    }
+
+}
+
+/* ===== TABLET ===== */
+
+@media screen and (max-width:992px){
+
+    header{
+        padding:18px 4%;
+    }
+
+    nav{
+        gap:18px;
+    }
+
+    nav a{
+        font-size:14px;
+    }
+
+    .hero{
+        padding:140px 4% 80px;
+        gap:40px;
+    }
+
+    .hero-text h1{
+        font-size:3rem;
+    }
+
+    .hero-image img{
+        width:340px;
+    }
+
+    .section{
+        padding:90px 4%;
+    }
+
+    .cards,
+    .produtos,
+    .depoimentos{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+/* ===== CELULAR ===== */
+
+@media screen and (max-width:768px){
+
+.menu-mobile{
+    display:block;
+}
+
+    /* HEADER */
+
+  header{
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* ESCONDE MENU DESKTOP */
+nav{
+    display:none;
+}
+
+/* BOTÃO HAMBURGUER */
+.menu-mobile{
+    display:block;
+    margin-left:auto;
+    order:3;
+}
+
+/* BOTÃO ORÇAMENTO */
+header .btn{
+    display:none;
+}
+
+    .logo img{
+        width:55px;
+    }
+
+    .logo h1{
+        font-size:1.1rem;
+    }
+
+    header .btn{
+        padding:10px 18px;
+        font-size:13px;
+    }
+
+    /* HERO */
+
+    .hero{
+        flex-direction:column-reverse;
+        justify-content:center;
+        text-align:center;
+        min-height:auto;
+        padding:120px 5% 70px;
+        gap:30px;
+    }
+
+    .hero::before{
+        width:250px;
+        height:250px;
+        right:50%;
+        transform:translateX(50%);
+        top:80px;
+    }
+
+    .hero-text{
+        width:100%;
+    }
+
+    .hero-text h3{
+        font-size:.9rem;
+        margin-bottom:8px;
+    }
+
+    .hero-text h1{
+        font-size:2.3rem;
+        line-height:1.2;
+        margin-bottom:18px;
+    }
+
+    .hero-text p{
+        font-size:14px;
+        line-height:1.7;
+        margin-bottom:25px;
+    }
+
+    .hero-buttons{
+        width:100%;
+        flex-direction:column;
+        align-items:center;
+        gap:15px;
+    }
+
+    .hero-buttons a{
+        width:100%;
+        max-width:320px;
+        text-align:center;
+    }
+
+    .hero-image{
+        width:100%;
+        display:flex;
+        justify-content:center;
+    }
+
+    .hero-image img{
+        width:100%;
+        max-width:260px;
+    }
+
+    /* SECTION */
+
+    .section{
+        padding:70px 5%;
+    }
+
+    .section-title{
+        margin-bottom:40px;
+    }
+
+    .section-title h2{
+        font-size:2rem;
+        line-height:1.2;
+    }
+
+    .section-title p{
+        font-size:14px;
+    }
+
+    /* CARDS */
+
+    .cards,
+    .produtos,
+    .depoimentos{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:28px;
+        border-radius:22px;
+    }
+
+    .card i{
+        font-size:2rem;
+    }
+
+    /* PRODUTOS */
+
+    .produto{
+        border-radius:22px;
+    }
+
+    .produto img{
+        height:260px;
+    }
+
+    .produto-info{
+        padding:22px;
+    }
+
+    /* NUMEROS */
+
+    .numeros{
+        grid-template-columns:repeat(2,1fr);
+        padding:35px 20px;
+        gap:20px;
+        border-radius:25px;
+    }
+
+    .numero h1{
+        font-size:2rem;
+    }
+
+    .numero p{
+        font-size:13px;
+    }
+
+    /* DEPOIMENTOS */
+
+    .depoimento{
+        padding:25px;
+        border-radius:22px;
+    }
+
+    /* CTA */
+
+    .cta{
+        padding:70px 5%;
+    }
+
+    .cta h1{
+        font-size:2rem;
+        line-height:1.2;
+    }
+
+    .cta p{
+        font-size:14px;
+    }
+
+    /* FOOTER */
+
+    footer{
+        flex-direction:column;
+        text-align:center;
+        align-items:center;
+        padding:30px 5%;
+    }
+
+}
+
+/* ===== CELULAR PEQUENO ===== */
+
+@media screen and (max-width:480px){
+
+    .hero-text h1{
+        font-size:1.9rem;
+    }
+
+    .hero-image img{
+        max-width:220px;
+    }
+
+    .section-title h2{
+        font-size:1.7rem;
+    }
+
+    .numeros{
+        grid-template-columns:1fr;
+    }
+
+    .numero h1{
+        font-size:1.8rem;
+    }
+
+    .cta h1{
+        font-size:1.7rem;
+    }
+
+    .produto img{
+        height:220px;
+    }
+
+}
+
+
+
+</style>
 </head>
+<body>
 
-<!-- ABA DO CARRINHO -->
+<!-- HEADER -->
 
-<div class="aba-carrinho" id="abaCarrinho">
+<header>
 
-    <div class="topo-carrinho">
+<div class="logo">
+<img src="logo arts vm.png" alt="">
+<h1>Arts <span>VM</span></h1>
+</div>
 
-        <h2>Seu Carrinho</h2>
+<nav>
+<a href="#inicio">Início</a>
+<a href="#beneficios">Benefícios</a>
+<a href="#produtos">Produtos</a>
+<a href="#clientes">Clientes</a>
+<a href="#contato">Contato</a>
+</nav>
 
-        <button onclick="fecharCarrinho()">
-            X
-        </button>
+<div class="menu-mobile">
+    <i class="fa-solid fa-bars"></i>
+</div>
 
+<a href="#" class="btn">
+Solicitar Orçamento
+</a>
+
+</header>
+
+<!-- MENU MOBILE -->
+
+<div class="overlay"></div>
+
+<div class="mobile-nav">
+
+    <div class="close-menu">
+        <i class="fa-solid fa-xmark"></i>
     </div>
 
-    <div id="lista-carrinho"></div>
-
-    <h3 id="total-carrinho">
-        Total: R$ 0.00
-    </h3>
-
-    <div class="botoes-carrinho">
-
-        <button onclick="limparCarrinho()" class="limpar">
-
-            Limpar Carrinho
-
-        </button>
-
-        <button onclick="finalizarWhatsapp()" class="finalizar">
-
-            Finalizar no WhatsApp
-
-        </button>
-
-    </div>
+    <a href="#inicio">Início</a>
+    <a href="#beneficios">Benefícios</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#clientes">Clientes</a>
+    <a href="#contato">Contato</a>
 
 </div>
 
-    <!-- =========================
-    ABA DO CARRINHO
-    ========================== -->
+<!-- HERO -->
 
-    <div class="aba-carrinho" id="abaCarrinho">
+<section class="hero" id="inicio">
 
-        <div class="topo-carrinho">
+<div class="hero-text">
 
-            <h2>
-                Seu Carrinho
-            </h2>
+<h3>UNIFORMES PROFISSIONAIS</h3>
 
-            <button onclick="fecharCarrinho()">
-                X
-            </button>
+<h1>
+Vista sua equipe com
+<span>qualidade e identidade</span>
+</h1>
 
-        </div>
+<p>
+A Arts VM produz uniformes personalizados, camisetas profissionais,
+regatas, shorts e muito mais com acabamento premium e design moderno.
+</p>
 
-        <div id="lista-carrinho"></div>
+<div class="hero-buttons">
+<a href="#" class="btn">Fazer Orçamento</a>
+</div>
 
-        <h3 id="total-carrinho">
-            Total: R$ 0.00
-        </h3>
+</div>
 
-        <div class="botoes-carrinho">
+<div class="hero-image">
+<img src="logo.png" alt="">
+</div>
 
-            <button
-            onclick="limparCarrinho()"
-            class="limpar">
+</section>
 
-                Limpar Carrinho
+<!-- BENEFICIOS -->
 
-            </button>
+<section class="section" id="beneficios">
 
-            <button
-            onclick="finalizarWhatsapp()"
-            class="finalizar">
+<div class="section-title">
+<h2>Por que escolher a <span>Arts VM</span>?</h2>
+<p>Qualidade, velocidade e profissionalismo.</p>
+</div>
 
-                Finalizar no WhatsApp
+<div class="cards">
 
-            </button>
+<div class="card">
+<i class="fa-solid fa-shirt"></i>
+<h3>Qualidade Premium</h3>
+<p>Materiais resistentes e acabamento profissional.</p>
+</div>
 
-        </div>
+<div class="card">
+<i class="fa-solid fa-palette"></i>
+<h3>Personalização</h3>
+<p>Crie uniformes únicos para sua empresa ou equipe.</p>
+</div>
 
-    </div>
+<div class="card">
+<i class="fa-solid fa-truck-fast"></i>
+<h3>Entrega Rápida</h3>
+<p>Produção eficiente com agilidade na entrega.</p>
+</div>
 
-    <!-- =========================
-    HEADER
-    ========================== -->
+<div class="card">
+<i class="fa-solid fa-headset"></i>
+<h3>Suporte Completo</h3>
+<p>Atendimento especializado para tirar dúvidas.</p>
+</div>
 
-    <header>
+</div>
 
-        <div class="topo">
+</section>
 
-            <!-- LOGO -->
+<!-- PRODUTOS -->
 
-            <div class="logo">
+<section class="section" id="produtos">
 
-                <img src="artsvm.png">
+<div class="section-title">
+<h2>Nossos <span>Produtos</span></h2>
+<p>Uniformes modernos e personalizados.</p>
+</div>
 
-                <h1>
-                    Arts VM
-                </h1>
+<div class="produtos">
 
-            </div>
+<div class="produto">
+<img src="anhanguera.png" alt="">
+<div class="produto-info">
+<h3>Uniforme Anhanguera</h3>
+<p>Uniformes personalizados com alta qualidade e conforto para sua equipe.</p>
+</div>
+</div>
 
-            <!-- MENU -->
+<div class="produto">
+<img src="focus.png" alt="">
+<div class="produto-info">
+<h3>Uniformes Esportivos</h3>
+<p>Uniformes esportivos personalizados com tecido leve e resistente.</p>
+</div>
+</div>
 
-            <nav class="menu">
+<div class="produto">
+<img src="sudeste.png" alt="">
+<div class="produto-info">
+<h3>Uniformes Profissionais </h3>
+<p>Visual moderno e profissional para empresas.</p>
+</div>
+</div>
 
-                <a href="#inicio">
-                    Início
-                </a>
+</div>
 
-                <a href="#produtos">
-                    Produtos
-                </a>
+</section>
 
-                <a href="#avaliacoes">
-                    Avaliações
-                </a>
+<!-- NUMEROS -->
 
-            </nav>
+<section class="section">
 
-        </div>
+<div class="numeros">
 
-    </header>
+<div class="numero">
+<h1>+500</h1>
+<p>Clientes Atendidos</p>
+</div>
 
-    <!-- =========================
-    BANNER
-    ========================== -->
+<div class="numero">
+<h1>+10K</h1>
+<p>Peças Produzidas</p>
+</div>
 
-    <section class="banner" id="inicio">
+<div class="numero">
+<h1>100%</h1>
+<p>Qualidade Garantida</p>
+</div>
 
-        <div>
+<div class="numero">
+<h1>24h</h1>
+<p>Suporte ao Cliente</p>
+</div>
 
-            <h1>
-                Uniformes Profissionais
-            </h1>
+</div>
 
-            <p>
-                Qualidade premium para empresas,
-                escolas e hospitais.
-            </p>
+</section>
 
-        </div>
+<!-- DEPOIMENTOS -->
 
-    </section>
+<section class="section" id="clientes">
 
-    <!-- =========================
-    PRODUTOS
-    ========================== -->
+<div class="section-title">
+<h2>O que nossos <span>clientes</span> dizem</h2>
+<p>Feedbacks reais de quem confia na Arts VM.</p>
+</div>
 
-    <h2 class="titulo-secao" id="produtos">
+<div class="depoimentos">
 
-        Produtos em Destaque
+<div class="depoimento">
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
 
-    </h2>
+<p>
+“Os uniformes ficaram incríveis, material excelente e entrega rápida.”
+</p>
 
-    <div class="container">
+<h4>— Cliente Empresarial</h4>
+</div>
 
-        <div class="produtos">
+<div class="depoimento">
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
 
-            <!--- primeira linha -->
+<p>
+“Atendimento excelente e qualidade acima do esperado.”
+</p>
 
-            <!-- PRODUTO 1 -->
+<h4>— Equipe Esportiva</h4>
+</div>
 
-            <div class="produto"
-            onclick="abrirModal(this)">
+<div class="depoimento">
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
 
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
+<p>
+“Empresa profissional e uniforme com acabamento perfeito.”
+</p>
 
-                <div class="produto-info">
+<h4>— Empresa Parceira</h4>
+</div>
 
-                    <h3>
-                        Uniforme Escolar
-                    </h3>
+</div>
 
-                    <p class="descricao"
-                    style="display:none;">
+</section>
 
-                        Uniforme escolar premium
-                        com tecido resistente
-                        e confortável.
+<!-- CTA -->
 
-                    </p>
+<section class="cta" id="contato">
 
-                    <p class="preco">
-                        R$ 79,90
-                    </p>
+<h1>Seu uniforme começa aqui.</h1>
 
-                    <!-- QUANTIDADE -->
+<p>
+Solicite agora um orçamento personalizado para sua empresa ou equipe.
+</p>
 
-                    <div class="controle-qtd">
+<a href="#" class="btn">
+<i class="fa-brands fa-whatsapp"></i>
+ Fazer Orçamento
+</a>
 
-                        <button
-                        onclick="event.stopPropagation();
-                        diminuir(this)">
+</section>
 
-                            -
+<!-- FOOTER -->
 
-                        </button>
+<footer>
 
-                        <span class="qtd">
-                            1
-                        </span>
+<p>
+© 2026 Arts VM — Todos os direitos reservados.
+</p>
 
-                        <button
-                        onclick="event.stopPropagation();
-                        aumentar(this)">
+<div class="social">
 
-                            +
+<a href="https://www.instagram.com/artsvmcamisetas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+<i class="fa-brands fa-instagram"></i>
+</a>
 
-                        </button>
-
-                    </div>
-
-                    <!-- BOTÃO -->
-
-                    <button class="add"
-                    onclick="event.stopPropagation();
-                    adicionar(this,'Uniforme Escolar',79.90)">
-
-                        Adicionar ao Carrinho
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-
-
-              <!-- PRODUTO 2 -->
-
-            <div class="produto"
-            onclick="abrirModal(this)">
-
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
-
-                <div class="produto-info">
-
-                    <h3>
-                        Uniforme Escolar
-                    </h3>
-
-                    <p class="descricao"
-                    style="display:none;">
-
-                        Uniforme escolar premium
-                        com tecido resistente
-                        e confortável.
-
-                    </p>
-
-                    <p class="preco">
-                        R$ 79,90
-                    </p>
-
-                    <!-- QUANTIDADE -->
-
-                    <div class="controle-qtd">
-
-                        <button
-                        onclick="event.stopPropagation();
-                        diminuir(this)">
-
-                            -
-
-                        </button>
-
-                        <span class="qtd">
-                            1
-                        </span>
-
-                        <button
-                        onclick="event.stopPropagation();
-                        aumentar(this)">
-
-                            +
-
-                        </button>
-
-                    </div>
-
-                    <!-- BOTÃO -->
-
-                    <button class="add"
-                    onclick="event.stopPropagation();
-                    adicionar(this,'Uniforme Escolar',79.90)">
-
-                        Adicionar ao Carrinho
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-
-
-              <!-- PRODUTO 3 -->
-
-            <div class="produto"
-            onclick="abrirModal(this)">
-
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
-
-                <div class="produto-info">
-
-                    <h3>
-                        Uniforme Escolar
-                    </h3>
-
-                    <p class="descricao"
-                    style="display:none;">
-
-                        Uniforme escolar premium
-                        com tecido resistente
-                        e confortável.
-
-                    </p>
-
-                    <p class="preco">
-                        R$ 79,90
-                    </p>
-
-                    <!-- QUANTIDADE -->
-
-                    <div class="controle-qtd">
-
-                        <button
-                        onclick="event.stopPropagation();
-                        diminuir(this)">
-
-                            -
-
-                        </button>
-
-                        <span class="qtd">
-                            1
-                        </span>
-
-                        <button
-                        onclick="event.stopPropagation();
-                        aumentar(this)">
-
-                            +
-
-                        </button>
-
-                    </div>
-
-                    <!-- BOTÃO -->
-
-                    <button class="add"
-                    onclick="event.stopPropagation();
-                    adicionar(this,'Uniforme Escolar',79.90)">
-
-                        Adicionar ao Carrinho
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-
-
-              <!-- PRODUTO 4 -->
-
-            <div class="produto"
-            onclick="abrirModal(this)">
-
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
-
-                <div class="produto-info">
-
-                    <h3>
-                        Uniforme Escolar
-                    </h3>
-
-                    <p class="descricao"
-                    style="display:none;">
-
-                        Uniforme escolar premium
-                        com tecido resistente
-                        e confortável.
-
-                    </p>
-
-                    <p class="preco">
-                        R$ 79,90
-                    </p>
-
-                    <!-- QUANTIDADE -->
-
-                    <div class="controle-qtd">
-
-                        <button
-                        onclick="event.stopPropagation();
-                        diminuir(this)">
-
-                            -
-
-                        </button>
-
-                        <span class="qtd">
-                            1
-                        </span>
-
-                        <button
-                        onclick="event.stopPropagation();
-                        aumentar(this)">
-
-                            +
-
-                        </button>
-
-                    </div>
-
-                    <!-- BOTÃO -->
-
-                    <button class="add"
-                    onclick="event.stopPropagation();
-                    adicionar(this,'Uniforme Escolar',79.90)">
-
-                        Adicionar ao Carrinho
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-
-
-            <!-- segundas linha -->  
-
-        </div>
-
-    </div>
-
-      <div class="container">
-
-        <div class="produtos">
-
-            <!-- PRODUTO 1 -->
-
-            <div class="produto"
-            onclick="abrirModal(this)">
-
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
-
-                <div class="produto-info">
-
-                    <h3>
-                        Uniforme Escolar
-                    </h3>
-
-                    <p class="descricao"
-                    style="display:none;">
-
-                        Uniforme escolar premium
-                        com tecido resistente
-                        e confortável.
-
-                    </p>
-
-                    <p class="preco">
-                        R$ 79,90
-                    </p>
-
-                    <!-- QUANTIDADE -->
-
-                    <div class="controle-qtd">
-
-                        <button
-                        onclick="event.stopPropagation();
-                        diminuir(this)">
-
-                            -
-
-                        </button>
-
-                        <span class="qtd">
-                            1
-                        </span>
-
-                        <button
-                        onclick="event.stopPropagation();
-                        aumentar(this)">
-
-                            +
-
-                        </button>
-
-                    </div>
-
-                    <!-- BOTÃO -->
-
-                    <button class="add"
-                    onclick="event.stopPropagation();
-                    adicionar(this,'Uniforme Escolar',79.90)">
-
-                        Adicionar ao Carrinho
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-
-
-              <!-- PRODUTO 2 -->
-
-            <div class="produto"
-            onclick="abrirModal(this)">
-
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
-
-                <div class="produto-info">
-
-                    <h3>
-                        Uniforme Escolar
-                    </h3>
-
-                    <p class="descricao"
-                    style="display:none;">
-
-                        Uniforme escolar premium
-                        com tecido resistente
-                        e confortável.
-
-                    </p>
-
-                    <p class="preco">
-                        R$ 79,90
-                    </p>
-
-                    <!-- QUANTIDADE -->
-
-                    <div class="controle-qtd">
-
-                        <button
-                        onclick="event.stopPropagation();
-                        diminuir(this)">
-
-                            -
-
-                        </button>
-
-                        <span class="qtd">
-                            1
-                        </span>
-
-                        <button
-                        onclick="event.stopPropagation();
-                        aumentar(this)">
-
-                            +
-
-                        </button>
-
-                    </div>
-
-                    <!-- BOTÃO -->
-
-                    <button class="add"
-                    onclick="event.stopPropagation();
-                    adicionar(this,'Uniforme Escolar',79.90)">
-
-                        Adicionar ao Carrinho
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-
-
-              <!-- PRODUTO 3 -->
-
-            <div class="produto"
-            onclick="abrirModal(this)">
-
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
-
-                <div class="produto-info">
-
-                    <h3>
-                        Uniforme Escolar
-                    </h3>
-
-                    <p class="descricao"
-                    style="display:none;">
-
-                        Uniforme escolar premium
-                        com tecido resistente
-                        e confortável.
-
-                    </p>
-
-                    <p class="preco">
-                        R$ 79,90
-                    </p>
-
-                    <!-- QUANTIDADE -->
-
-                    <div class="controle-qtd">
-
-                        <button
-                        onclick="event.stopPropagation();
-                        diminuir(this)">
-
-                            -
-
-                        </button>
-
-                        <span class="qtd">
-                            1
-                        </span>
-
-                        <button
-                        onclick="event.stopPropagation();
-                        aumentar(this)">
-
-                            +
-
-                        </button>
-
-                    </div>
-
-                    <!-- BOTÃO -->
-
-                    <button class="add"
-                    onclick="event.stopPropagation();
-                    adicionar(this,'Uniforme Escolar',79.90)">
-
-                        Adicionar ao Carrinho
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-
-
-              <!-- PRODUTO 4 -->
-
-            <div class="produto"
-            onclick="abrirModal(this)">
-
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200">
-
-                <div class="produto-info">
-
-                    <h3>
-                        Uniforme Escolar
-                    </h3>
-
-                    <p class="descricao"
-                    style="display:none;">
-
-                        Uniforme escolar premium
-                        com tecido resistente
-                        e confortável.
-
-                    </p>
-
-                    <p class="preco">
-                        R$ 79,90
-                    </p>
-
-                    <!-- QUANTIDADE -->
-
-                    <div class="controle-qtd">
-
-                        <button
-                        onclick="event.stopPropagation();
-                        diminuir(this)">
-
-                            -
-
-                        </button>
-
-                        <span class="qtd">
-                            1
-                        </span>
-
-                        <button
-                        onclick="event.stopPropagation();
-                        aumentar(this)">
-
-                            +
-
-                        </button>
-
-                    </div>
-
-                    <!-- BOTÃO -->
-
-                    <button class="add"
-                    onclick="event.stopPropagation();
-                    adicionar(this,'Uniforme Escolar',79.90)">
-
-                        Adicionar ao Carrinho
-
-                    </button>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    
-
- <section>
-
-       <!-- =========================
-    AVALIAÇÕES
-    ========================== -->
-
-   <div class="cards-avaliacoes">
-
-    <!-- CARD 1 -->
-    <div class="card-av">
-
-        <h3>⭐⭐⭐⭐⭐</h3>
-
-        <p>
-            "Excelente qualidade
-            e entrega rápida."
-        </p>
-
-        <br>
-
-        <strong>
-            Marcos Silva
-        </strong>
-
-    </div>
-
-    
-
-    <!-- CARD 2 -->
-    <div class="card-av">
-
-        <h3>⭐⭐⭐⭐⭐</h3>
-
-        <p>
-            "Uniformes muito confortáveis
-            e ótimo acabamento."
-        </p>
-
-        <br>
-
-        <strong>
-            Fernanda Lima
-        </strong>
-
-    </div>
-
-    <!-- CARD 3 -->
-    <div class="card-av">
-
-        <h3>⭐⭐⭐⭐⭐</h3>
-
-        <p>
-            "Atendimento excelente
-            e entrega rápida."
-        </p>
-
-        <br>
-
-        <strong>
-            Carlos Henrique
-        </strong>
-
-    </div>
-
- </section>
-
+<a href="#">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
 
 
 
 </div>
 
-    </section>
+</footer>
 
-    <!-- =========================
-    FOOTER
-    ========================== -->
+<script >
+    // ============================
+// MENU SCROLL EFEITO
+// ============================
 
-    <footer>
+const header = document.querySelector("header");
 
-        <h2>
-            Arts VM
-        </h2>
+window.addEventListener("scroll", () => {
 
-        <p>
-            Uniformes profissionais personalizados.
-        </p>
+    if(window.scrollY > 50){
+        header.style.background = "rgba(0,0,0,0.85)";
+        header.style.boxShadow = "0 5px 20px rgba(0,0,0,.4)";
+    }else{
+        header.style.background = "rgba(0,0,0,.5)";
+        header.style.boxShadow = "none";
+    }
 
-        <br>
+});
 
-        <p>
-            © 2026 Todos os direitos reservados.
-        </p>
 
-    </footer>
+// ============================
+// ANIMAÇÃO AO ROLAR
+// ============================
 
-    <!-- =========================
-    CARRINHO FLUTUANTE
-    ========================== -->
-
-    <div class="carrinho-flutuante"
-    onclick="abrirCarrinho()">
-
-        <i class="fa-solid fa-cart-shopping"></i>
-
-        <span id="contador-flutuante">
-
-            0
-
-        </span>
-
-    </div>
-
-    <!-- =========================
-    MODAL
-    ========================== -->
-
-    <div class="modal-produto"
-    id="modalProduto">
-
-        <div class="modal-conteudo">
-
-            <button class="fechar-modal"
-            onclick="fecharModal()">
-
-                X
-
-            </button>
-
-            <img id="modalImg">
-
-            <div class="modal-texto">
-
-                <h2 id="modalTitulo"></h2>
-
-                <p id="modalPreco"
-                class="preco"></p>
-
-                <p id="modalDescricao"></p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-<script>
-
-/* APAGUE TODO SEU JAVASCRIPT ANTIGO
-E COLE ESSE NOVO */
-
-/* =========================
-CARRINHO COMPLETO
-========================= */
-
-let carrinho = [];
-
-let totalItens = 0;
-
-/* QUANTIDADE */
-
-function aumentar(botao){
-
-const qtd = botao.parentElement.querySelector('.qtd');
-
-qtd.textContent = parseInt(qtd.textContent) + 1;
-
-}
-
-function diminuir(botao){
-
-const qtd = botao.parentElement.querySelector('.qtd');
-
-let valor = parseInt(qtd.textContent);
-
-if(valor > 1){
-
-qtd.textContent = valor - 1;
-
-}
-
-}
-
-/* ADICIONAR */
-
-function adicionar(botao,nome,preco){
-
-let qtd = parseInt(
-botao.parentElement.querySelector('.qtd').textContent
+const elements = document.querySelectorAll(
+    ".card, .produto, .numero, .depoimento"
 );
 
-let produtoExistente = carrinho.find(item => item.nome === nome);
+const observer = new IntersectionObserver((entries)=>{
 
-if(produtoExistente){
+    entries.forEach((entry)=>{
 
-produtoExistente.quantidade += qtd;
+        if(entry.isIntersecting){
 
-}else{
+            entry.target.classList.add("show");
 
-carrinho.push({
-nome:nome,
-preco:preco,
-quantidade:qtd
+        }
+
+    });
+
+},{
+    threshold:0.2
 });
 
-}
+elements.forEach((el)=>{
+    observer.observe(el);
+});
 
-atualizarCarrinho();
 
-}
+// ============================
+// CONTADOR ANIMADO
+// ============================
 
-/* ATUALIZAR */
+const counters = document.querySelectorAll(".numero h1");
 
-function atualizarCarrinho(){
+counters.forEach(counter => {
 
-totalItens = 0;
+    const targetText = counter.innerText;
 
-carrinho.forEach(item => {
+    let target = parseInt(targetText.replace(/\D/g, ""));
 
-totalItens += item.quantidade;
+    // Corrige K
+    if(targetText.includes("K")){
+        target *= 1000;
+    }
+
+    let current = 0;
+
+    const increment = target / 100;
+
+    const updateCounter = () => {
+
+        current += increment;
+
+        if(current < target){
+
+            if(targetText.includes("K")){
+
+                counter.innerText =
+                "+" + Math.ceil(current / 1000) + "K";
+
+            }else if(targetText.includes("%")){
+
+                counter.innerText =
+                Math.ceil(current) + "%";
+
+            }else if(targetText.includes("h")){
+
+                counter.innerText =
+                Math.ceil(current) + "h";
+
+            }else{
+
+                counter.innerText =
+                "+" + Math.ceil(current);
+
+            }
+
+            requestAnimationFrame(updateCounter);
+
+        }else{
+
+            counter.innerText = targetText;
+
+        }
+
+    };
+
+    updateCounter();
 
 });
 
-document.getElementById("contador-flutuante")
-.textContent = totalItens;
 
-renderizarCarrinho();
+// ============================
+// EFEITO DIGITAÇÃO HERO
+// ============================
+
+const text = "Uniformes Profissionais";
+const typingElement = document.querySelector(".hero-text h3");
+
+let index = 0;
+
+function typeEffect(){
+
+    if(index < text.length){
+
+        typingElement.innerHTML += text.charAt(index);
+
+        index++;
+
+        setTimeout(typeEffect, 80);
+
+    }
 
 }
 
-/* RENDERIZAR */
+typingElement.innerHTML = "";
+typeEffect();
 
-function renderizarCarrinho(){
 
-const lista = document.getElementById("lista-carrinho");
+// ============================
+// BOTÃO WHATSAPP
+// ============================
 
-lista.innerHTML = "";
+const whatsappButtons = document.querySelectorAll(".btn");
 
-let total = 0;
+whatsappButtons.forEach((button)=>{
 
-carrinho.forEach((item,index) => {
+    button.addEventListener("click",(e)=>{
 
-total += item.preco * item.quantidade;
+        if(button.innerText.includes("Orçamento")){
 
-lista.innerHTML += `
+            e.preventDefault();
 
-<div class="item-carrinho">
+            const phone = "5511975561295";
 
-<div>
+            const message = encodeURIComponent(
+                "Olá! Quero fazer um orçamento na Arts VM."
+            );
 
-<h4>${item.nome}</h4>
+            window.open(
+                `https://wa.me/${phone}?text=${message}`,
+                "_blank"
+            );
 
-<p>
-Qtd: ${item.quantidade}
-</p>
+        }
 
-<p>
-R$ ${(item.preco * item.quantidade).toFixed(2)}
-</p>
+    });
 
-</div>
+});
 
-<button onclick="removerItem(${index})">
 
-🗑
+// ============================
+// PARALLAX SUAVE HERO
+// ============================
 
-</button>
+const heroImage = document.querySelector(".hero-image img");
 
-</div>
+window.addEventListener("mousemove",(e)=>{
+
+    let x = (window.innerWidth / 2 - e.pageX) / 40;
+    let y = (window.innerHeight / 2 - e.pageY) / 40;
+
+    heroImage.style.transform =
+    `translate(${x}px, ${y}px)`;
+
+});
+
+
+// ============================
+// REVELAÇÃO SUAVE
+// ============================
+
+const style = document.createElement("style");
+
+style.innerHTML = `
+
+.card,
+.produto,
+.numero,
+.depoimento{
+    opacity:0;
+    transform:translateY(50px);
+    transition:all .8s ease;
+}
+
+.card.show,
+.produto.show,
+.numero.show,
+.depoimento.show{
+    opacity:1;
+    transform:translateY(0);
+}
 
 `;
 
-});
+document.head.appendChild(style);
 
-document.getElementById("total-carrinho")
-.innerHTML =
-"Total: R$ " + total.toFixed(2);
+// ============================
+// MENU MOBILE
+// ============================
 
-}
+const menuBtn = document.querySelector(".menu-mobile");
+const mobileNav = document.querySelector(".mobile-nav");
+const closeMenu = document.querySelector(".close-menu");
+const overlay = document.querySelector(".overlay");
 
-/* REMOVER ITEM */
+menuBtn.addEventListener("click", () => {
 
-function removerItem(index){
-
-carrinho.splice(index,1);
-
-atualizarCarrinho();
-
-}
-
-/* LIMPAR */
-
-function limparCarrinho(){
-
-carrinho = [];
-
-atualizarCarrinho();
-
-}
-
-/* ABRIR */
-
-function abrirCarrinho(){
-
-document.getElementById("abaCarrinho")
-.classList.add("ativo");
-
-}
-
-/* FECHAR */
-
-function fecharCarrinho(){
-
-document.getElementById("abaCarrinho")
-.classList.remove("ativo");
-
-}
-
-/* FINALIZAR WHATSAPP */
-
-function finalizarWhatsapp(){
-
-if(carrinho.length === 0){
-
-return;
-
-}
-
-let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
-
-let total = 0;
-
-carrinho.forEach(item => {
-
-mensagem +=
-`• ${item.nome} | QTD: ${item.quantidade}%0A`;
-
-total += item.preco * item.quantidade;
+    mobileNav.classList.add("active");
+    overlay.classList.add("active");
 
 });
 
-mensagem += `%0ATotal: R$ ${total.toFixed(2)}`;
+closeMenu.addEventListener("click", () => {
 
-window.open(
-`https://wa.me/5511999999999?text=${mensagem}`,
-'_blank'
-);
+    mobileNav.classList.remove("active");
+    overlay.classList.remove("active");
 
-}
+});
 
-/* MODAL */
+overlay.addEventListener("click", () => {
 
-function abrirModal(card){
+    mobileNav.classList.remove("active");
+    overlay.classList.remove("active");
 
-let img = card.querySelector("img").src;
+});
 
-let titulo = card.querySelector("h3").textContent;
+// FECHAR MENU AO CLICAR NOS LINKS
 
-let preco = card.querySelector(".preco").textContent;
+const mobileLinks = document.querySelectorAll(".mobile-nav a");
 
-let descricao =
-card.querySelector(".descricao").textContent;
+mobileLinks.forEach(link => {
 
-document.getElementById("modalImg").src = img;
+    link.addEventListener("click", () => {
 
-document.getElementById("modalTitulo")
-.textContent = titulo;
+        mobileNav.classList.remove("active");
+        overlay.classList.remove("active");
 
-document.getElementById("modalPreco")
-.textContent = preco;
+    });
 
-document.getElementById("modalDescricao")
-.textContent = descricao;
-
-document.getElementById("modalProduto")
-.classList.add("ativo");
-
-}
-
-function fecharModal(){
-
-document.getElementById("modalProduto")
-.classList.remove("ativo");
-
-}
-
+});
 </script>
-
 </body>
 </html>
+
